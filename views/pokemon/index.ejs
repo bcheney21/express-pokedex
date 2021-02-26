@@ -3,5 +3,9 @@
 <% pokemons.forEach(pokemon=> { %>
     <div>
         <h3><%= pokemon.name %></h3>
+
+        <form action="/pokemons/<%=pokemon.name%>" method="GET">
+            <input type="submit" value="More Information">
+        </form>
     </div>
 <% }) %> 

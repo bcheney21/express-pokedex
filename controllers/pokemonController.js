@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { default: axios } = require('axios')
 const db = require('../models')
 
 
@@ -30,9 +31,22 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/:name', aysnc (req, res) => {
-    const pokeName = { name; req.body.name }
-    const pokeURL = 'http://pokeapi.co'
-})
+router.get('/:name', async (req, res) => {
+    try {
+        const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/' + req.params.name 
+        const response = await axios.get(pokeApiUrl)
+        const pokemon = response.data
+        console.log(pokemon)
+    } catch (error) {
+        console.log(error)
+    }
+//     const pokeName = req.params.name
+//     const pokeURL = await axios.get('http://pokeapi.co/api/v2/pokemon/' + pokeName)
+//     const pokeData = pokeURL.data
+//     const pokeMoves = pokeData.moves
+//     res.render('pokemon/show', { pokeData: pokeData}, { pokeMoves: pokeMoves})
+//     // res.send(pokeData)
+//     // res.send(pokeMoves)
+// })
 
 module.exports = router;
