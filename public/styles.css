@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: rebeccapurple;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: coral
+}
